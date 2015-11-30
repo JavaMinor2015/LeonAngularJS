@@ -1,0 +1,58 @@
+<form ng-submit="saveContact()" ng-show="addingNew">
+  <h2>Adding new contact</h2>
+  <label for="inputFirstName">First name:</label>
+  <input type="text" ng-model="newContact.firstName" id="inputFirstName" class="form-control">
+  <label for="inputSurname">Surname:</label>
+  <input type="text" ng-model="newContact.surname"
+         id="inputSurname" class="form-control">
+  <label for="inputEmail">E-mail address:</label>
+  <input type="text" ng-model="newContact.email"
+         id="inputEmail" class="form-control">
+  <br />
+  <button type="submit" class="btn btn-success">Save</button>
+  <button type="submit" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
+</form>
+<button type="button" class="btn btn-success" ng-show="addingNew == false" ng-click="addingNew = true">Add new contact</button>
+<br />
+<br />
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr ng-repeat="contact in contacts">
+    <td>{{contact.id}}</td>
+    <td ng-hide="contact.editMode">{{contact.firstName}} {{contact.surname}}</td>
+    <td ng-hide="contact.editMode">{{contact.email}}</td>
+    <td ng-hide="contact.editMode">
+      <button class="btn btn-primary" ng-click="edit(contact)">Edit</button>
+      <button class="btn btn-danger" ng-click="delete(contact)">Delete</button>
+    </td>
+    <td colspan="2" ng-show="contact.editMode">
+      <label for="cFirstName_{{contact.id}}">First name:</label>
+      <input type="text" ng-model="contact.firstName" id="cFirstName_{{contact.id}}" class="form-control">
+      <label for="cSurname_{{contact.id}}">Surname:</label>
+      <input type="text" ng-model="contact.surname"
+             id="cSurname_{{contact.id}}" class="form-control">
+      <label for="cEmail_{{contact.id}}">E-mail address:</label>
+      <input type="text" ng-model="contact.email"
+             id="cEmail_{{contact.id}}" class="form-control">
+      <br class="clearfix" />
+    </td>
+    <td ng-show="contact.editMode">
+      <button type="submit" class="btn btn-success" ng-click="contact.editMode = false">Save</button>
+    </td>
+  </tr>
+
+  <tr ng-show="contacts.length == 0">
+    <td colspan="4">No items!</td>
+  </tr>
+
+  </tbody>
+</table>
