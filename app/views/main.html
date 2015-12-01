@@ -10,7 +10,7 @@
          id="inputEmail" class="form-control">
   <br />
   <button type="submit" class="btn btn-success">Save</button>
-  <button type="submit" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
+  <button type="button" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
 </form>
 <button type="button" class="btn btn-success" ng-show="addingNew == false" ng-click="addingNew = true">Add new contact</button>
 <br />
@@ -28,7 +28,7 @@
 
   <tr ng-repeat="contact in contacts">
     <td>{{contact.id}}</td>
-    <td ng-hide="contact.editMode">{{contact.firstName}} {{contact.surname}}</td>
+    <td ng-hide="contact.editMode">{{contact | contactName}}</td>
     <td ng-hide="contact.editMode">{{contact.email}}</td>
     <td ng-hide="contact.editMode">
       <button class="btn btn-primary" ng-click="edit(contact)">Edit</button>
