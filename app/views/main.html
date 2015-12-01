@@ -1,15 +1,15 @@
-<form ng-submit="saveContact()" ng-show="addingNew">
+<form ng-submit="saveContact()" ng-show="addingNew" name="newContactForm" novalidate>
   <h2>Adding new contact</h2>
   <label for="inputFirstName">First name:</label>
-  <input type="text" ng-model="newContact.firstName" id="inputFirstName" class="form-control">
+  <input type="text" ng-model="newContact.firstName" id="inputFirstName" class="form-control" ng-required="true">
   <label for="inputSurname">Surname:</label>
   <input type="text" ng-model="newContact.surname"
-         id="inputSurname" class="form-control">
+         id="inputSurname" class="form-control" ng-required="true">
   <label for="inputEmail">E-mail address:</label>
   <input type="text" ng-model="newContact.email"
-         id="inputEmail" class="form-control">
+         id="inputEmail" class="form-control" ng-required="true">
   <br />
-  <button type="submit" class="btn btn-success">Save</button>
+  <button ng-disabled="newContactForm.$invalid" type="submit" class="btn btn-success">Save</button>
   <button type="button" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
 </form>
 <button type="button" class="btn btn-success" ng-show="addingNew == false" ng-click="addingNew = true">Add new contact</button>
@@ -36,13 +36,13 @@
     </td>
     <td colspan="2" ng-show="contact.editMode">
       <label for="cFirstName_{{contact.id}}">First name:</label>
-      <input type="text" ng-model="contact.firstName" id="cFirstName_{{contact.id}}" class="form-control">
+      <input type="text" ng-model="contact.firstName" id="cFirstName_{{contact.id}}" class="form-control" ng-required="true">
       <label for="cSurname_{{contact.id}}">Surname:</label>
       <input type="text" ng-model="contact.surname"
-             id="cSurname_{{contact.id}}" class="form-control">
+             id="cSurname_{{contact.id}}" class="form-control" ng-required="true">
       <label for="cEmail_{{contact.id}}">E-mail address:</label>
       <input type="text" ng-model="contact.email"
-             id="cEmail_{{contact.id}}" class="form-control">
+             id="cEmail_{{contact.id}}" class="form-control" ng-required="true">
       <br class="clearfix" />
     </td>
     <td ng-show="contact.editMode">
