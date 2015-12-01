@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angularJsApp.filters'
+    'angularJsApp.filters',
+    'angularJsApp.directives'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -35,3 +36,5 @@ angular
       });
   });
 angular.module('angularJsApp.filters', []);
+angular.module('angularJsApp.directives', []);
+
