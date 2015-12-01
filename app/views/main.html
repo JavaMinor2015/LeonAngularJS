@@ -9,10 +9,10 @@
   <input type="text" ng-model="newContact.email"
          id="inputEmail" class="form-control" ng-required="true">
   <br />
-  <button ng-disabled="newContactForm.$invalid" type="submit" class="btn btn-success">Save</button>
-  <button type="button" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
+  <button id="newContactSaveBtn" ng-disabled="newContactForm.$invalid" type="submit" class="btn btn-success">Save</button>
+  <button id="newContactCancelBtn" type="button" class="btn btn-primary" ng-click="addingNew = false">Cancel</button>
 </form>
-<button type="button" class="btn btn-success" ng-show="addingNew == false" ng-click="addingNew = true">Add new contact</button>
+<button id="addNewContactBtn" type="button" class="btn btn-success" ng-show="addingNew == false" ng-click="addingNew = true">Add new contact</button>
 <br />
 <br />
 <table class="table">
